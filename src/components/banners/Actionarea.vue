@@ -1,6 +1,6 @@
 <template>
 	<!--== Start Call to Action Area ==-->
-		<div class="call-to-action-area sm-top">
+		<div class="call-to-action-area sm-top mb-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-lg-4">

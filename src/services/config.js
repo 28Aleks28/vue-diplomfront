@@ -1,5 +1,6 @@
 export const baseUrl = 'http://127.0.0.1:8000/';
-export const baseUrlApi = 'http://127.0.0.1:8000/api';
+export const baseUrlApi = baseUrl + 'api';
+export const baseUrlStorage = baseUrl + 'storage/';
 
 const api = {
 	category: {
@@ -8,6 +9,7 @@ const api = {
 
 	products: {
 		get: baseUrlApi + "/products",
+		getInfo: baseUrlApi + "/product"
 	},
 
 	banner: {

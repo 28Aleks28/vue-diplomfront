@@ -27,3 +27,7 @@ export const getBanners = async function(bannerId) {
 	}
 	
 }
+
+export const getInfoProduct = async function (id) {
+	return await $api.get(api.products.getInfo + "/" + id);
+}

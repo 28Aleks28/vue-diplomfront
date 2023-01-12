@@ -33,42 +33,42 @@
         /*-------------------------
           02. Countdown JS
         -----------------------------*/
-        $(".ht-countdown").each(function(index, element) {
-            var $element = $(element),
-                $date = $element.data('date');
+        // $(".ht-countdown").each(function(index, element) {
+        //     var $element = $(element),
+        //         $date = $element.data('date');
 
-            $element.countdown($date, function(event) {
-                var $this = $(this).html(event.strftime(''
+        //     $element.countdown($date, function(event) {
+        //         var $this = $(this).html(event.strftime(''
 
-                    +
-                    '<div class="countdown-item"><span class="countdown-item__time">%D</span><span class="countdown-item__label">Days</span></div>' +
-                    '<div class="countdown-item"><span class="countdown-item__time">%H</span><span class="countdown-item__label">Hours</span></div>' +
-                    '<div class="countdown-item"><span class="countdown-item__time">%M</span><span class="countdown-item__label">Minutes</span></div>' +
-                    '<div class="countdown-item"><span class="countdown-item__time">%S</span><span class="countdown-item__label">Seconds</span></div>'));
-            });
-        });
+        //             +
+        //             '<div class="countdown-item"><span class="countdown-item__time">%D</span><span class="countdown-item__label">Days</span></div>' +
+        //             '<div class="countdown-item"><span class="countdown-item__time">%H</span><span class="countdown-item__label">Hours</span></div>' +
+        //             '<div class="countdown-item"><span class="countdown-item__time">%M</span><span class="countdown-item__label">Minutes</span></div>' +
+        //             '<div class="countdown-item"><span class="countdown-item__time">%S</span><span class="countdown-item__label">Seconds</span></div>'));
+        //     });
+        // });
 
         /*------------------------------
           03. Responsive Menu JS   '.main-menu.nav'
         --------------------------------*/
-        $('.main-menu.nav').slicknav({
-            appendTo: '.res-mobile-menu',
-            closeOnClick: true,
-            removeClasses: true,
-            closedSymbol: '<i class="ion-plus"></i>',
-            openedSymbol: '<i class="ion-minus"></i>'
-        });
+        // $('.main-menu.nav').slicknav({
+        //     appendTo: '.res-mobile-menu',
+        //     closeOnClick: true,
+        //     removeClasses: true,
+        //     closedSymbol: '<i class="ion-plus"></i>',
+        //     openedSymbol: '<i class="ion-minus"></i>'
+        // });
 
-        var resCanvasWrapper = $(".off-canvas-menu");
-        $(".btn-menu").on('click', function() {
-            resCanvasWrapper.addClass('active');
-            $("body").addClass('fix');
-        });
+        // var resCanvasWrapper = $(".off-canvas-menu");
+        // $(".btn-menu").on('click', function() {
+        //     resCanvasWrapper.addClass('active');
+        //     $("body").addClass('fix');
+        // });
 
-        $(".off-canvas-overlay, .btn-close").on('click', function() {
-            $(".off-canvas-wrapper").removeClass('active');
-            $("body").removeClass('fix');
-        });
+        // $(".off-canvas-overlay, .btn-close").on('click', function() {
+        //     $(".off-canvas-wrapper").removeClass('active');
+        //     $("body").removeClass('fix');
+        // });
 
 
         /*---------------------------

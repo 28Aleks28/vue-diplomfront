@@ -17,9 +17,9 @@
 							<div v-for="(product, index) in this.products" :key="index" class="col">
 								<div class="product-item">
 									<div class="product-item__thumb">
-										<a href="single-product.html">
-											<img class="thumb-primary" :src="product.image_src" alt="Product" />
-											<img class="thumb-secondary" :src="product.image_src" alt="Product" />
+										<a @click="this.$router.push(product.src)">
+											<img class="thumb-primary" :src="product.image" alt="Product" />
+											<img class="thumb-secondary" :src="product.image" alt="Product" />
 										</a>
 									</div>
 						
@@ -31,7 +31,7 @@
 											<span><i class="ion-android-star"></i></span>
 											<span><i class="ion-android-star-half"></i></span>
 										</div>
-										<h4 class="title"><a href="single-product.html">{{product.name}}</a></h4>
+										<h4 class="title"><a @click="this.$router.push(product.src)">{{product.name}}</a></h4>
 										<span class="price"><strong>Цена:</strong> {{product.price}} руб</span>
 									</div>
 						
@@ -42,9 +42,9 @@
 										<button class="btn-add-to-cart"><i class="ion-eye"></i></button>
 									</div>
 						
-									<div class="product-item__sale">
+									<!-- <div class="product-item__sale">
 										<span class="sale-txt">25%</span>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
@@ -56,28 +56,39 @@
 </template>
 
 <script>
-	import Product from "../Products/Product.vue";
+	//import Product from "./Product.vue";
 	import { getProducts } from "../../services/methods.js";
+	import { baseUrlStorage } from "../../services/config.js";
 
 	export default {
-    	name: 'Catalog',
+    	name: 'HomeCatalog',
     	components: {
-			Product
+			
     	},
-	data() {
-		return {
-				products: [],
+		data() {
+			return {
+					products: [],
+				}
+			},
+		async created(){
+			this.products = await this.getProducts();
+		},
+		methods:{
+			async getProducts(){
+						let products = await getProducts(this.$route.params.id);
+
+						products = products.data.map(function(item, index) {
+							return {
+								name: item.name,
+								image: baseUrlStorage + item.image,
+								price: item.price,
+								src: '/product/' + item.id
+							};
+						});
+
+				return products;		
 			}
-    	},
-	async created(){
-		this.products = await this.getProducts();
-    },
-    methods:{
-      async getProducts(){
-        	let products = await getProducts(null);
-			return products.data;		
 		}
-      }
     }
 </script>
 

@@ -1,14 +1,14 @@
 <template>  
   <Slider />
-  
-  <Actionarea />
 
   <HomeCatalog />
+  
+  <Actionarea />  
 </template>
 
 <script>
   import Slider from "../components/banners/Slider.vue";
-  import HomeCatalog from "../components/Products/HomeCatalog.vue";
+  import HomeCatalog from "../components/products/HomeCatalog.vue";
   import Actionarea from "../components/banners/Actionarea.vue";
 
   export default {
