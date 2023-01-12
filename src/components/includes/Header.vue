@@ -17,13 +17,8 @@
 									Главная
 								</a>								
 							</li>
-
-							<li class="has-submenu">
-								<a href="#">Марки автомобилей</a>
-								<ul class="sub-menu">
-									<Dropdown />
-								</ul>
-							</li>
+							
+							<Dropdown />
 							
 							<li class="has-submenu"><a href="blog.html">blog</a>
 								<ul class="sub-menu">
@@ -135,7 +130,7 @@
 
                 <!-- Content Auto Generate Form Main Menu Here -->				
                 <div class="res-mobile-menu mobile-menu">
-							
+					
 				</div>
             </div>
         </div>
@@ -152,7 +147,32 @@
 		components: {
 			Dropdown
 		},
+		mounted() {			
+			this.$nextTick(function () {
+				$('.main-menu.nav').slicknav({
+					appendTo: '.res-mobile-menu',
+					closeOnClick: true,
+					removeClasses: true,
+					closedSymbol: '<i class="ion-plus"></i>',
+					openedSymbol: '<i class="ion-minus"></i>'
+				});
+
+				var resCanvasWrapper = $(".off-canvas-menu");
+				$(".btn-menu").on('click', function() {
+					resCanvasWrapper.addClass('active');
+					$("body").addClass('fix');
+				});
+
+				$(".off-canvas-overlay, .btn-close").on('click', function() {
+					$(".off-canvas-wrapper").removeClass('active');
+					$("body").removeClass('fix');
+				});
+			})
+			
+		}
 	}
+
+	
 </script>
 
 <style>

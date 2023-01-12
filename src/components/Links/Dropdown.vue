@@ -1,8 +1,13 @@
 <template>
-	<li v-for="(category, index) in this.category" :key="index">
-		<a href="#" @click="this.$router.push(category.src)">
-			{{category.name}}
-		</a>
+	<li class="has-submenu">
+		<a href="#">Марки автомобилей</a>
+		<ul class="sub-menu">
+			<li v-for="(category, index) in this.category" :key="index">
+				<a href="#" @click="this.$router.push(category.src)">
+					{{category.name}}
+				</a>
+			</li>
+		</ul>
 	</li>
 </template>
 	
